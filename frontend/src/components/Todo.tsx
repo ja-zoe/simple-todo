@@ -29,18 +29,21 @@ const Todo = () => {
 
     return (
         <div className="container">
+            <h1 className="title">TODO</h1>
             <div className="inputContainer">
-                <form onSubmit={e => addTodo(e)}>
-                    <input onChange={e => setMessage(e.target.value)} placeholder="Enter A Todo"></input>
+                <form className="form" onSubmit={e => addTodo(e)}>
+                    <input className="input" onChange={e => setMessage(e.target.value)} placeholder="Enter A Todo"></input>
                 </form>
             </div>
             <div className="todoContainer">
                 {todos.map(currentTodo => {
                     return(
-                        <div key={currentTodo.id}>
-                            <h2>{currentTodo.message}</h2>
-                            <MdEdit className="icon" />
-                            <MdDelete className="icon" onClick={() => deleteTodo(currentTodo.id)} />
+                        <div className="todo" key={currentTodo.id} >
+                            <p>{currentTodo.message}</p>
+                            <div className="icons">
+                                <MdEdit className="icon" />
+                                <MdDelete className="icon" onClick={() => deleteTodo(currentTodo.id)} />
+                            </div>
                         </div>
                     )
                 })}
